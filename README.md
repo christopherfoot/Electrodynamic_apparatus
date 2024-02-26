@@ -9,6 +9,8 @@ Schematics of the system:
 
 GUI is coded in Python, Arduino Language is used for control and reading code.
 
+GUI1.0.4 = includes: frequency control, voltage control, monitor graph reading frequency. use with monitor1.0.1.ino & control1.0.2.ino
+
 GUI1.0.3 = added reading frequency box, doesn't work, needs fixing in terms of sychronisation and reading bytes from serial 
 
 GUI1.0.1 = works for sending signals, doesn't need refreshing to change output frequency, stop button blocks ttl
