@@ -28,13 +28,8 @@ VERY IMPORTANT THINGS TO NOTE:
 - for this version, the serial ports used must be declared in this script: in lines 36/37 declare which port you are using with the arduino.
 - sometimes the graph might stop uploading, this is because there might be some wrong bytes coming from the arduino or some old bytres in the serial buffer. However, since the graph runs on a separate thread of execution, this problem will not stop the main part of the application from running.
 """
-"""
-  DCvoltage_1000 = String(str.charAt(9)).toInt();
-  DCvoltage_100 = String(str.charAt(10)).toInt();
-  DCvoltage_10 = String(str.charAt(11)).toInt();
-  DCvoltage_1 = String(str.charAt(12)).toInt();
-  DCvoltage =  100 * DCvoltage_100 + 10 * DCvoltage_10 + DCvoltage_1;
-"""
+
+
 
 import sys
 import pyqtgraph as pg
@@ -98,7 +93,7 @@ class MainWindow(QMainWindow):
         layout0.addWidget(label1)
         
 
-        label = QLabel("Enter frequency")
+        label = QLabel("Enter frequency")               #Frequency entry
         layout1.addWidget(label)
 
         self.input_frequency = QLineEdit()
@@ -107,22 +102,22 @@ class MainWindow(QMainWindow):
         label3 =QLabel("Enter AC Voltage percentage (0-99)")
         layout6.addWidget(label3)
 
-        self.input_voltage = QLineEdit()
+        self.input_voltage = QLineEdit()                              #AC voltage entry
         self.input_voltage.setPlaceholderText('please enter 9 as 09')
         layout6.addWidget(self.input_voltage)
 
         label4 =QLabel("Enter DC Voltage percentage (0-99)")
         layout7.addWidget(label4)
 
-        self.DC_voltage = QLineEdit()
+        self.DC_voltage = QLineEdit()                                 #DC voltage entry
         self.DC_voltage.setPlaceholderText('please enter 9 as 09')
         layout7.addWidget(self.DC_voltage)
 
-        self.btn = QPushButton("Start")
+        self.btn = QPushButton("Start")                        #start button
         layout2.addWidget(self.btn)
         self.btn.clicked.connect(self.send_func)
 
-        self.btn2 = QPushButton("Stop")
+        self.btn2 = QPushButton("Stop")                     #stop button
         layout2.addWidget(self.btn2)
         self.btn2.clicked.connect(self.stop_func)
 
@@ -231,10 +226,6 @@ class Frequency_thread(QtCore.QThread):
             
             
             
-            
-
-
-
 
 app = QApplication(sys.argv)
 
