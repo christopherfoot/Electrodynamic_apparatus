@@ -1,28 +1,32 @@
-const int analogInputPin = A0; // Analog input pin
-const int samplingInterval = 2000; // Sampling interval in milliseconds (adjust as needed)
+// This version reads and calculates the trap frequency, and sends it to the UI, where it is displayed on the monitor.
+
+//Author: Francesco Straniero
+//Date: 03/03/2024
+
+
+const int analogInputPin = A0; 
+const int samplingInterval = 2000; // Sampling interval in ms
 
 void setup() {
   pinMode(A0,INPUT);
-  Serial.begin(115200); // Initialize serial communication
+  Serial.begin(115200); 
 }
 
 void loop() {
   unsigned long startTime = millis(); // Record the start time of the sampling interval
-  int pulseCount = 1; // Initialize pulse count
+  int pulseCount = 1; // Initialize count, it is set to 1, so that when trap is off, the code doesn't have to divide by zero.
 
-  // Count pulses within the sampling interval
+  // The way this code works is as follows: it counts how many peaks are in a 2 seconds interval, then calculates the frequency and sends it through the serial port to the UI.
   while (millis() - startTime < samplingInterval) {
-    if (analogRead(analogInputPin) > 700) { // Check if signal is above threshold (adjust threshold as needed)
+    if (analogRead(analogInputPin) > 700) { 
       pulseCount++;
-      while (analogRead(analogInputPin) > 700) {} // Wait until signal falls below threshold to count next pulse
+      while (analogRead(analogInputPin) > 700) {} 
     }
   }
 
-  // Calculate frequency
+  // calculate frequency
   float frequency = pulseCount/ (samplingInterval / 1000.0); // Convert pulse count to frequency (Hz)
 
-  // Output frequency to serial port
-  
   Serial.println(frequency);
   
 }
