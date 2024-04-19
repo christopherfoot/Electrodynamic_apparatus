@@ -1,8 +1,5 @@
 // This version reads and calculates the trap frequency, and sends it to the UI, where it is displayed on the monitor.
 
-//Author: Francesco Straniero
-//Date: 03/03/2024
-
 
 const int analogInputPin = A0; 
 const int samplingInterval = 2000; // Sampling interval in ms
