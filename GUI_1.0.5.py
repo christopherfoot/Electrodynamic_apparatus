@@ -8,8 +8,7 @@ compatible arduino codes:
 - for reader: Monitor2.0.0
 """
 """
-Author: Francesco Straniero
-Date: 05/03/2024
+
 
 HOW DOES THIS APP WORK:
 for a detailed description refer to https://github.com/christopherfoot/Electrodynamic_apparatus 
