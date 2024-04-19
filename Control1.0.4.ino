@@ -1,7 +1,5 @@
 // This version writes to the circuit electronics, includes Dc & AC power control
 
-//Author: Francesco Straniero
-//Date: 04/03/2024
 
 
 #include <TimeLib.h>
